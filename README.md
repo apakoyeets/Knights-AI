@@ -1,26 +1,40 @@
-🎮 Just taught an AI how to play the game of **Nim** — from scratch! 🤖
+# 🧠 Q-Learning AI for Knights Game
 
-Over the past week, I built a reinforcement learning model that uses **Q-learning** to master Nim — a classic strategy game where players remove objects from piles, and the one forced to take the last object loses.
+This project implements a reinforcement learning agent that learns to play **Knights**, a two-player strategy game played on a 4×4 chessboard using knight pieces. The AI is trained using **Q-learning** and learns to optimize its moves by playing thousands of self-play games.
 
-Here’s how it works:
+---
 
-🧠 The AI:
-- Represents the game state as pile configurations (like `[1, 3, 5, 7]`)
-- Chooses actions using an **epsilon-greedy policy** (explore vs. exploit)
-- Updates its strategy using the **Q-learning** algorithm:
-  
-  `Q(s, a) ← Q(s, a) + α * (reward + max Q(s’, a’) − Q(s, a))`
+## ♟️ Game Overview: Knights
 
-📈 After training on 10,000 games, the AI becomes nearly unbeatable!
+- Two players take turns moving knight pieces on a 4×4 board.
+- Each knight moves using traditional chess knight rules (L-shaped jumps).
+- A square can only be visited once — it is removed after being stepped on.
+- A player loses when they can no longer make a legal move.
 
-💡 What I learned:
-- How to implement Q-learning from scratch
-- How to model turn-based strategy games with reinforcement learning
-- How to tune hyperparameters like learning rate, exploration rate, etc.
+The objective: **Trap the opponent** so they have no available moves.
 
-📂 Tech stack: Python, NumPy, object-oriented programming
+---
 
-🕹️ Want to try beating the AI? Check out the project here:
-🔗 [GitHub repo link]
+## 🧠 AI Overview
 
-#AI #ReinforcementLearning #Qlearning #MachineLearning #Python #OpenSource #GameAI
+The AI uses a **Q-learning algorithm** to learn optimal moves by reinforcement:
+
+- **States**: Encoded board positions and whose turn it is  
+- **Actions**: Legal knight moves from the current position  
+- **Rewards**:  
+  - +1 for a win  
+  - -1 for a loss  
+  - 0 for intermediate moves  
+- **Policy**: Epsilon-greedy (explores random moves with decaying epsilon)
+
+---
+
+## 🔧 Features
+
+- Full game engine for the Knights game  
+- Q-table for state-action learning  
+- Epsilon decay and learning rate tuning  
+- Self-play training for thousands of games  
+- Command-line interface to play against the trained bot
+
+---
